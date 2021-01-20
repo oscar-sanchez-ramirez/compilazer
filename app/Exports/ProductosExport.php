@@ -28,9 +28,23 @@ class ProductosExport implements FromView, ShouldAutoSize, WithStyles
 
         $contenido = Storage::disk('public')->get($new_file);
         $datoss = json_decode($contenido, true);
-        
 
-        return view('productos.productos', [
+        $directory = public_path().'/img';
+
+        if (!is_dir($directory)) {
+            mkdir($directory);
+        }
+
+        foreach ($datoss as $value) {
+            $img = str_replace('"', "", $value['imagen']);
+            $img_r = str_replace('http://ctonline.mx/img/productos/', "", $img);
+
+            if (!file_exists('img/' . $img_r)) {
+                copy($img, 'img/' . $img_r);
+            }
+        }
+
+        return view('productos.catalogo', [
             'datos' => $datoss
         ]);
     }
