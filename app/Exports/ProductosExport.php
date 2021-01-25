@@ -29,7 +29,7 @@ class ProductosExport implements FromView, ShouldAutoSize, WithStyles
         $contenido = Storage::disk('public')->get($new_file);
         $datoss = json_decode($contenido, true);
 
-        $directory = public_path().'/img';
+        $directory = public_path() . '/img';
 
         if (!is_dir($directory)) {
             mkdir($directory);
@@ -39,8 +39,8 @@ class ProductosExport implements FromView, ShouldAutoSize, WithStyles
             $img = str_replace('"', "", $value['imagen']);
             $img_r = str_replace('http://ctonline.mx/img/productos/', "", $img);
 
-            if (!file_exists('img/' . $img_r)) {
-                copy($img, 'img/' . $img_r);
+            if (!file_exists($directory . '/' . $img_r)) {
+                copy($img, $directory . '/' . $img_r);
             }
         }
 
@@ -50,7 +50,8 @@ class ProductosExport implements FromView, ShouldAutoSize, WithStyles
     }
 
 
-    public function styles(Worksheet $sheet){
+    public function styles(Worksheet $sheet)
+    {
         return [
             1 => ['font' => ['bold' => true]],
         ];

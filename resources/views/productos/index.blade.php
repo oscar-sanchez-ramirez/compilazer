@@ -94,8 +94,7 @@
                                 </td>
                                 <td>
                                     <?php $img = str_replace('"', "", $value['imagen']);  ?>
-                                    <img src="{{ $img }}" alt="" style="width: 200px; height: 200px; border: 2px solid red">
-                                    <a href="{{ $img }}" target="_blank">Imagen</a>
+                                    {{ $img }}
                                 </td>
                             </tr>
                             @endforeach
