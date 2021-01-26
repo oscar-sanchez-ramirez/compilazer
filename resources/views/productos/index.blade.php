@@ -94,7 +94,7 @@
                                 </td>
                                 <td>
                                     <?php $img = str_replace('"', "", $value['imagen']);  ?>
-                                    <img src="{{ $img }}" alt="">
+                                    <img src="<?php echo "img/".$img ?>" alt="" width="100">
                                 </td>
                             </tr>
                             @endforeach
