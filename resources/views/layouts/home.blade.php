@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Copilazer</title>
+    <title>Copiláser</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -29,10 +29,10 @@
 
     <div class="wrapper">
 
-        <nav class="navbar navbar-expand navbar-dark navbar-navy">
+        <nav class="navbar navbar-expand navbar-dark">
             <ul class="navbar-nav">
-                <li class="nav-item d-none d-sm-inline-block">
-                    <a href="{{ route('inicio') }}" class="nav-link">Inicio</a>
+                <li class="nav-item d-none d-sm-inline-block active">
+                    <a href="{{ route('inicio') }}" class="nav-link"><i class="fas fa-home"></i> Inicio</a>
                 </li>
             </ul>
         </nav>

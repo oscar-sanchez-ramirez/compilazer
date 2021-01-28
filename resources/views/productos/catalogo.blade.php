@@ -70,7 +70,7 @@
                 </td>
                 <td>{{ $value['descripcion_corta'] }}</td>
                 <td>
-                    <p>Modelo: { $value['modelo'] }}</p>
+                    <p>Modelo: {{ $value['modelo'] }}</p>
                     <p>NumParte: {{ $value['numParte'] }}</p>
                     <p>Marca: {{ $value['marca'] }}</p>
                 </td>
