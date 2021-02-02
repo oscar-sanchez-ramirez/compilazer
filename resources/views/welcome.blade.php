@@ -129,7 +129,7 @@
                 <div class="container-fluid">
                     <div class="row">
                         <div class="col-md-12 text-center mt-5">
-                            <img src="{{ asset('logos/LOGOTIPO.png') }}" alt="">
+                            <img class="img-fluid" src="{{ asset('logos/LOGOTIPO.png') }}" alt="">
                         </div>
                         @yield('content')
                     </div>
