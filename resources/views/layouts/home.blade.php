@@ -47,7 +47,7 @@
 
         <footer class="main-footer">
             <div class="text-center">
-                <p>&copy; <?= date('Y') ?> Derechos de autor <strong>CT</strong> Todos los derechos reservados.</p>
+            <p>&copy; <?= date('Y') ?> <strong>Copiláser</strong></p>
             </div>
         </footer>
     </div>

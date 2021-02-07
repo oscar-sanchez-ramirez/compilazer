@@ -41,71 +41,111 @@
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
     @toastr_css
 
+<style>
+        .portada{
+        background: url( {{ asset('logos/logo.png') }} ) no-repeat fixed center;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+        }
 
+        .lateral{
+            background-color: #0A1B2A;
+        }
+
+        .linea{
+            background-color: white;
+        }
+
+        .letra-centrada{
+
+            font-size: 400%;
+        }
+
+
+        .abs-center {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+         }
+
+         .main-header {
+            border-bottom: 0px solid #dee2e6;
+            z-index: 1034;
+         }
+
+
+
+</style>
 
 
 </head>
 
-<body class="hold-transition sidebar-mini">
+<body class="hold-transition sidebar-mini" style="background: black;">
+
     <div class="wrapper">
 
         <nav class="main-header navbar navbar-expand navbar-dark">
-            <ul class="navbar-nav ">
-                <li class="nav-item">
+            <ul class="navbar-nav">
+                <li class="nav-item d-block d-sm-block d-md-none">
                     <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
                 </li>
                 <li class="nav-item d-none d-sm-inline-block">
-
-                    <a href="" class="nav-link"><i class="fas fa-home"></i> Inicio</a>
+                    <p class="nav-link active "> <b>BIENVENIDO</b></p>
                 </li>
-
-            </ul>
-            <ul class="navbar-nav ml-auto">
-
             </ul>
         </nav>
-
-        <aside class="main-sidebar sidebar-dark-navy navbar-dark elevation-4">
-
-            <h2 class="text-center text-white mt-2">Copiláser</h2>
+        <aside class="main-sidebar sidebar-dark-navy lateral elevation-4">
+        <div class="text-center mt-4 mb-4">
+        <img class="img-fluid" src="{{ asset('logos/logo2.png') }}" alt="" width="100px">
+        </div>
 
             <div class="sidebar">
-                <nav class="mt-2">
+                <nav class="">
                     <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
 
                         <li class="nav-item menu-open">
-                            <a href="#" class="nav-link active bg-info">
-                                <i class="fas fa-cart-arrow-down"></i>
+                            <a href="#" class="nav-link active bg-info text-center">
+
                                 <p>
                                     Productos
                                     <i class="right fas fa-angle-left"></i>
                                 </p>
                             </a>
                             <ul class="nav nav-treeview">
-                                <li class="nav-item">
-                                    <a href="{{ route('ftp') }}" class="nav-link active">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Catálogo CT</p>
+                                <li class="nav-item mt-3">
+                                    <a href="{{ route('ftp') }}" class="nav-link  text-center">
+
+                                        <p ><b>Catálogo CT</b></p>
                                     </a>
                                 </li>
+                                <hr class="linea">
                                 <li class="nav-item">
-                                    <a href="{{ route('ctExport') }}" class="nav-link active">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Excel CT</p>
+                                    <a href="{{ route('ctExport') }}" class="nav-link  text-center">
+
+                                        <p><b>Excel CT</b></p>
                                     </a>
                                 </li>
+                                <hr class="linea">
                                 <li class="nav-item">
-                                    <a href="{{ route('ftpCo') }}" class="nav-link active">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Catálogo Copiláser   </p>
+                                    <a href="{{ route('ftpCo') }}" class="nav-link  text-center">
+
+                                        <p><b>Catálogo Copiláser</b></p>
                                     </a>
                                 </li>
+                                <hr class="linea">
                                 <li class="nav-item">
-                                    <a href="{{ route('excel') }}" class="nav-link active">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Excel Copiláser</p>
+                                    <a href="{{ route('excel') }}" class="nav-link  text-center">
+
+                                        <p><b>Excel Copiláser</b></p>
                                     </a>
                                 </li>
+                                <hr class="linea">
+                                <div class="fixed-bottom text-white d-none d-sm-none d-md-block">
+                                 <p class="text-white ml-5">&copy; <?= date('Y') ?> <strong>Copiláser</strong></p>
+                               </div>
                             </ul>
                         </li>
                     </ul>
@@ -114,38 +154,19 @@
 
         </aside>
         <div class="content-wrapper portada">
-            <div class="content-header">
-                <div class="container-fluid">
-                    <div class="row mb-2">
-                        <div class="col-sm-6">
-                            <ol class="breadcrumb float-sm-right">
+            <div class="container">
+                <div class="row justify-content-center abs-center">
+                       <h1 class="text-white text-center letra-centrada"><b>La Evolución es</b>
+                       <br>
+                       parte de nuestro ADN
+                       </h1>
+                </div>
+            </div>
 
-                            </ol>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="content">
-                <div class="container-fluid">
-                    <div class="row">
-                        <div class="col-md-12 text-center mt-5">
-                            <img class="img-fluid" src="{{ asset('logos/LOGOTIPO.png') }}" alt="">
-                        </div>
-                        @yield('content')
-                    </div>
-                </div>
-            </div>
         </div>
-        <aside class="control-sidebar sidebar-dark-info navbar-light elevation-2">
-
-        </aside>
-        <footer class="main-footer">
-
-            <div class="text-center">
-
-                <p>&copy; <?= date('Y') ?> <strong>Copiláser</strong></p>
-            </div>
-        </footer>
+        <div class="fixed-bottom text-white text-center d-block d-sm-block d-md-none">
+            <p class="text-white">&copy; <?= date('Y') ?> <strong>Copiláser</strong></p>
+       </div>
     </div>
     <!-- ./wrapper -->
 
