@@ -85,7 +85,7 @@ class ProductosController extends Controller
 
     public function excel()
     {
-        return Excel::download(new ProductosExport(), date('d-m-Y').'-Productos-copilaser.xlsx');
+        return Excel::download(new ProductosExport(), date('d-m-Y').'-Productos-copilaser.csv');
     }
 
     public function ctExport()

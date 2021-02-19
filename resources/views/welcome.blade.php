@@ -78,6 +78,7 @@
 
 
 
+
 </style>
 
 
@@ -155,6 +156,7 @@
         </aside>
         <div class="content-wrapper portada">
             <div class="container">
+
                 <div class="row justify-content-center abs-center">
                        <h1 class="text-white text-center letra-centrada"><b>La Evolución es</b>
                        <br>
@@ -364,10 +366,6 @@
             bsCustomFileInput.init();
         });
     </script>
-
-
-
-
 
 </body>
 

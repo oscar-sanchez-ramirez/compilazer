@@ -90,8 +90,10 @@
                     @endforeach
                 </td>
                 <td>
-                    <?php $img = str_replace('"', "", $value['imagen']);  ?>
-                    {{ $img }}
+                    <?php $img = str_replace('"', "", $value['imagen']);
+                    $img_r = str_replace('http://ctonline.mx/img/productos/', "", $img);
+                    ?>
+                    <?= 'https://copilaser.com.mx/WS/public/img/'.$img_r ?>
                 </td>
             </tr>
             @endforeach

@@ -1,12 +1,46 @@
 @extends('layouts.home')
 @section('content')
+<style>
+    .outer-loader {
+        width: auto;
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
 
+    }
+
+    .inner-loader-img {
+        text-align: center;
+        background: url('logos/loader.gif') no-repeat center;
+        background-size: contain;
+        height: 40%;
+        width: 40%;
+    }
+
+    .parrafo {
+        position: relative;
+        top: 35%;
+        transform: translateY(-50%);
+        padding: 35px;
+        font-weight: bold;
+        font-size: 1.9rem;
+        margin-top: 100px;
+    }
+</style>
 <div class="container">
+
+        <div class="outer-loader">
+            <div class="inner-loader-img">
+                <p class="parrafo text-primary">Por favor espere</p>
+            </div>
+        </div>
+
     <div class="row justify-content-center">
         <div class="col-xl-12">
             <div class="card">
                 <div class="card-header">
-                    <b class="lead font-weight-bold text-primary"> Productos CT</b>
+                    <b class="lead font-weight-bold text-primary"> Catálogo de productos de (Copiláser y CT)</b>
                     <div class="row justify-content-end p-3">
                         <!-- <a href="" class="btn btn-sm btn-success"><i class="fas fa-download"></i></i> Descargar Excel</a> -->
                     </div>
@@ -93,8 +127,11 @@
                                     @endforeach
                                 </td>
                                 <td>
-                                    <?php $img = str_replace('"', "", $value['imagen']);  ?>
-                                    {{ $img }}
+                                    <?php $img = str_replace('"', "", $value['imagen']);
+                                    $img_r = str_replace('http://ctonline.mx/img/productos/', "", $img);
+                                    ?>
+
+                                    <a href="<?= 'public/img/'.$img_r ?>" target="_blank">imagen</a>
                                 </td>
                             </tr>
                             @endforeach
@@ -137,6 +174,11 @@
                 },
             }
         });
+    });
+</script>
+<script type="text/javascript">
+    $(window).on('load', function() {
+        $('.outer-loader').delay(1000).fadeOut('slow');
     });
 </script>
 @endsection

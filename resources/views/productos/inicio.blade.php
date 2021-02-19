@@ -1,12 +1,47 @@
 @extends('layouts.home')
 @section('content')
+<style>
+    .outer-loader {
+        width: auto;
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+    }
+
+    .inner-loader-img {
+        text-align: center;
+        background: url('logos/loader.gif') no-repeat center;
+        background-size: contain;
+        height: 40%;
+        width: 40%;
+    }
+
+    .parrafo {
+        position: relative;
+        top: 35%;
+        transform: translateY(-50%);
+        padding: 35px;
+        font-weight: bold;
+        font-size: 1.9rem;
+        margin-top: 100px;
+    }
+</style>
 
 <div class="container">
+
+    <div class="outer-loader">
+        <div class="inner-loader-img">
+            <p class="parrafo text-primary">Por favor espere</p>
+        </div>
+    </div>
+
     <div class="row justify-content-center">
         <div class="col-xl-12">
             <div class="card">
                 <div class="card-header">
-                    <b class="lead font-weight-bold text-primary"> Productos Copiláser</b>
+                    <b class="lead font-weight-bold text-primary"> Catálogo de productos de (Copiláser y CT)</b>
                     <div class="row justify-content-end p-3">
                         <!-- <a href="" class="btn btn-sm btn-success"><i class="fas fa-download"></i></i> Descargar Excel</a> -->
                     </div>
@@ -20,41 +55,14 @@
                                 <th scope="col" class="text-center">type</th>
                                 <th scope="col" class="text-center">sku</th>
                                 <th scope="col" class="text-center">name</th>
-                                <th scope="col" class="text-center">status</th>
-                                <th scope="col" class="text-center">featured</th>
-                                <th scope="col" class="text-center">catalog_visibility</th>
+                                <th scope="col" clas="text-center">category_ids</th>
                                 <th scope="col" class="text-center">short_description</th>
                                 <th scope="col" class="text-center">description</th>
-                                <th scope="col" class="text-center">date_on_sale_from</th>
-                                <th scope="col" class="text-center">date_on_sale_to</th>
-                                <th scope="col" class="text-center">tax_status</th>
-                                <th scope="col" class="text-center">tax_class</th>
-                                <th scope="col" class="text-center">stock_status</th>
-                                <th scope="col" class="text-center">backorders</th>
-                                <th scope="col" class="text-center">sold_individually</th>
                                 <th scope="col" class="text-center">weight</th>
                                 <th scope="col" class="text-center">height</th>
-                                <th scope="col" clas="text-center">reviews_allowed</th>
-                                <th scope="col" clas="text-center">purchase_note</th>
                                 <th scope="col" clas="text-center">price</th>
                                 <th scope="col" clas="text-center">regular_price</th>
-                                <th scope="col" clas="text-center">manage_stock/stock_quantitiy</th>
-                                <th scope="col" clas="text-center">category_ids</th>
-                                <th scope="col" clas="text-center">tag_ids</th>
-                                <th scope="col" clas="text-center">shipping_class_id</th>
-                                <th scope="col" clas="text-center">attributes</th>
-                                <th scope="col" clas="text-center">attributes</th>
-                                <th scope="col" clas="text-center">default_attributes</th>
-                                <th scope="col" clas="text-center">attributes</th>
                                 <th scope="col" clas="text-center">image_id/gallery_image_ids</th>
-                                <th scope="col" clas="text-center">attributes</th>
-                                <th scope="col" clas="text-center">downloads</th>
-                                <th scope="col" clas="text-center">downloads</th>
-                                <th scope="col" clas="text-center">download_limit</th>
-                                <th scope="col" clas="text-center">download_expiry</th>
-                                <th scope="col" clas="text-center">parent_id</th>
-                                <th scope="col" clas="text-center">upsell_ids</th>
-                                <th scope="col" clas="text-center">cross_sell_ids</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -64,12 +72,121 @@
                                 <td></td>
                                 <td>{{ $value['clave'] }}</td>
                                 <td>{{ $value['nombre'] }}</td>
-                                <td>{{ $value['activo'] }}</td>
-                                <td></td>
                                 <td>
-                                    @foreach($value['existencia'] as $key => $contenido)
-                                    <p>{{ $key }}: {{ $contenido }}</p>
-                                    @endforeach
+                                    @switch( $value['categoria'] )
+
+                                    @case('Accesorios para Componentes')
+                                    @case('Apple')
+                                    @case('MacBook')
+                                    @case('iPad')
+                                    @case('iMac')
+                                    @case('Computadoras')
+                                    @case('Laptop')
+                                    @case('Pc Escritorio')
+                                    @case('All in one')
+                                    @case('Tabletas')
+                                    @case('Workstations')
+
+                                    @case('Accesorios para Cómputo')
+                                    @case('Computadoras Gaming')
+
+                                    @case('Accesorios para Servidores')
+                                    @case('Centro de Datos')
+                                    @case('Solucion para servidores')
+
+                                    {{ __('Computadoras') }}
+                                    @break
+
+                                    @case('Video Vigilancia')
+                                    @case('Sistemas de Control')
+                                    @case('Seguridad Inteligente')
+                                    @case('Seguridad')
+
+                                    @case('Soluciones de Seguridad Inteligente')
+
+                                    {{ __('Seguridad') }}
+                                    @break
+
+                                    @case('Accesorios para Componentes')
+                                    @case('Ensamble')
+                                    @case('Tarjetas para Telefonía')
+                                    @case('Tarjetas')
+                                    {{ __('Componentes') }}
+                                    @break
+
+                                    @case('Consumibles')
+                                    @case('Accesorios para Impresión')
+                                    @case('Impresión')
+                                    @case('Digitalización de Imágenes')
+                                    {{ __('Impresión') }}
+                                    @break
+
+                                    @case('Accesorios para Electronica')
+                                    @case('Almacenamiento Portatil')
+                                    @case('Accesorios Gaming')
+                                    @case('Señalización Digital')
+                                    @case('Audio')
+                                    @case('Auriculares y Diademas')
+                                    @case('Electrónica')
+                                    @case('Línea Blanca')
+                                    {{ __('Electrónica') }}
+                                    @break
+
+                                    @case('Cables')
+                                    @case('Adaptadores')
+                                    @case('Comunicaciones')
+                                    @case('Teléfonos')
+                                    @case('Conmutadores PBX')
+                                    @case('Conferencias')
+                                    {{ __('Conectividad') }}
+                                    @break
+
+                                    @case('Perifericos para POS')
+                                    @case('Accesorios y Consumibles POS')
+                                    @case('Credencialización')
+                                    @case('Sistema para puntos de venta')
+
+                                    {{ __('Punto de Venta') }}
+                                    @break
+
+
+                                    @case('Sistemas Contables')
+                                    @case('Sistema para puntos de venta')
+                                    @case('Licenciamiento')
+                                    @case('Sistemas Operativos')
+                                    @case('Productividad')
+                                    @case('Software Administrativo')
+                                    @case('Seguridad Electrónica')
+
+                                    {{ __('Software') }}
+                                    @break
+
+                                    @case('Energia Solar y Eolica')
+                                    @case('Domotica')
+                                    @case('Accesorios para Energía')
+                                    @case('Respaldo y Regulación')
+                                    @case('Accesorios para Energía')
+                                    @case('Baterías Banks')
+
+                                    @case('Modulos Supresores')
+
+                                    {{ __('Energía') }}
+                                    @break
+
+                                    @case('Almacenamiento')
+                                    @case('Red Pasiva ')
+                                    @case('Red Activa ')
+                                    @case('Red Activa')
+                                    @case('Redes')
+                                    {{ __('Data Center') }}
+                                    @break
+
+                                    <!-- Accesorios y Salud -->
+
+                                    @default
+                                    {{ __('Otros') }}
+
+                                    @endswitch
                                 </td>
                                 <td>{{ $value['descripcion_corta'] }}</td>
                                 <td>
@@ -79,64 +196,20 @@
                                 </td>
                                 <td></td>
                                 <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
                                 <td>
-                                    @foreach($value['promociones'] ?? [] as $val3)
-                                    <?php
-                                    $tipo = json_encode($val3['tipo'], JSON_UNESCAPED_UNICODE);
-                                    $val2 = json_encode($val3['promocion'], JSON_UNESCAPED_UNICODE);
-
-                                    ?>
-                                    <p>Tipo: {{ $tipo }}, Promoción: {{ $val2 }}</p>
-                                    @foreach($val3['vigencia'] as $key => $contenido)
-                                    <p>{{ $key }}: {{ $contenido }}</p>
-                                    @endforeach
-                                    @endforeach
+                                    <?php $precio = ($value['precio'] * $value['tipoCambio']) ?>
+                                    {{ $precio }}
                                 </td>
-                                <td>{{ $value['precio'] }}</td>
-                                <td></td>
                                 <td>
-                                    <p>{{ $value['idCategoria'] }}</p>
-                                    <p>{{ $value['categoria'] }}</p>
-                                    <p>{{ $value['idSubCategoria'] }}</p>
+                                    <?php $precio = ($value['precio'] * $value['tipoCambio']) ?>
+                                    {{ $precio }}
                                 </td>
-                                <td></td>
-                                <td></td>
-                                <td>
-                                    @foreach($value['especificaciones'] ?? [] as $val2)
-                                    <?php
-                                    $tipo = json_encode($val2['tipo'], JSON_UNESCAPED_UNICODE);
-                                    $val3 = json_encode($val2['valor'], JSON_UNESCAPED_UNICODE);
-                                    ?>
-                                    <p>Tipo: {{ $tipo }}, Valor: {{ $val3 }}</p>
-                                    @endforeach
-                                </td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
                                 <td>
                                     <?php $img = str_replace('"', "", $value['imagen']);
                                     $img_r = str_replace('http://ctonline.mx/img/productos/', "", $img);
-                                    echo "img/" . $img_r;
                                     ?>
-
+                                    <a href="<?= 'img/' . $img_r ?>" target="_blank">imagen</a>
                                 </td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
                             </tr>
                             @endforeach
                         </tbody>
@@ -178,6 +251,11 @@
                 },
             }
         });
+    });
+</script>
+<script type="text/javascript">
+    $(window).on('load', function() {
+        $('.outer-loader').delay(1000).fadeOut('slow');
     });
 </script>
 @endsection
