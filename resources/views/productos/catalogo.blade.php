@@ -50,11 +50,6 @@
                     @case('Workstations')
 
                     @case('Accesorios para Cómputo')
-                    @case('Computadoras Gaming')
-
-                    @case('Accesorios para Servidores')
-                    @case('Centro de Datos')
-                    @case('Solucion para servidores')
 
                     {{ __('Computadoras') }}
                     @break
@@ -91,6 +86,9 @@
                     @case('Auriculares y Diademas')
                     @case('Electrónica')
                     @case('Línea Blanca')
+
+                    @case('Computadoras Gaming')
+
                     {{ __('Electrónica') }}
                     @break
 
@@ -140,6 +138,11 @@
                     @case('Red Activa ')
                     @case('Red Activa')
                     @case('Redes')
+
+                    @case('Accesorios para Servidores')
+                    @case('Centro de Datos')
+                    @case('Solucion para servidores')
+                    
                     {{ __('Data Center') }}
                     @break
 
