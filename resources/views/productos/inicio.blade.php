@@ -213,7 +213,7 @@
                                             $img = str_replace('"', '', $value['imagen']);
                                             $img_r = str_replace('http://ctonline.mx/img/productos/', '', $img);
                                             ?>
-                                            <a href="<?= 'public/img/' . $img_r ?>" target="_blank">imagen</a>
+                                            <a href="<?= 'img/' . $img_r ?>" target="_blank">imagen</a>
                                             </td>
                                         </tr>
                                         @endforeach
