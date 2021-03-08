@@ -23,4 +23,6 @@ Route::get('/ftpCo', 'ProductosController@ftpCo')->name('ftpCo');
 Route::get('/excel', 'ProductosController@excel')->name('excel');
 Route::get('/ctExport', 'ProductosController@ctExport')->name('ctExport');
 
+Route::get('datatable/info', 'Datatable@info')->name('datatable.info');
+
 
